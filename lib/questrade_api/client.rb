@@ -16,12 +16,12 @@ module QuestradeApi
     # @see QuestradeApi::Client#initialize for more details
     def initialize(params = {}, mode = :practice)
       self.authorization = QuestradeApi::Authorization.new(params, mode)
-      refresh_token if refresh_token?
+      refresh_token! if refresh_token?
     end
 
     # Fetches a new access_token. (see QuestradeApi::Authorization#refresh_token)
-    def refresh_token
-      authorization.refresh_token
+    def refresh_token!
+      authorization.refresh_token!
     end
 
     private

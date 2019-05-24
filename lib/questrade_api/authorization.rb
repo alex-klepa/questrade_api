@@ -37,7 +37,7 @@ module QuestradeApi
     # @note #data will be populated accordingly, if call is successful.
     #
     # @return The result of the call.
-    def refresh_token
+    def refresh_token!
       response = connection.get do |req|
         req.params[:grant_type] = 'refresh_token'
         req.params[:refresh_token] = data.refresh_token
@@ -54,6 +54,11 @@ module QuestradeApi
     # Returns the authorized access token.
     def access_token
       data.access_token
+    end
+
+    # Returns the authorized refresh token.
+    def refresh_token
+      data.refresh_token
     end
 
     # Returns the server associated with the authorized access token.

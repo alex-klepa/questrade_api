@@ -1,4 +1,5 @@
 require 'questrade_api/rest/base'
+require 'date'
 
 module QuestradeApi
   module REST
