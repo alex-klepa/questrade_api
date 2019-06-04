@@ -53,8 +53,8 @@ module QuestradeApi
 
     def candles(symbol_id, params)
       result = QuestradeApi::REST::Candle.fetch(authorization, symbol_id, params)
-      @ratelimit_remaining = result.response.headers['x-ratelimit-remaining']
-      @ratelimit_reset = result.response.headers['x-ratelimit-reset']
+      @ratelimit_remaining = result.response.headers['x-ratelimit-remaining'].to_i
+      @ratelimit_reset = result.response.headers['x-ratelimit-reset'].to_i
       result
     end
 
