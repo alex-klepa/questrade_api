@@ -11,7 +11,7 @@ module QuestradeApi
     include QuestradeApi::MarketCall
     include QuestradeApi::OrderCall
 
-    attr_accessor :authorization
+    attr_accessor :authorization, :ratelimit_remaining, :ratelimit_reset
 
     # @see QuestradeApi::Client#initialize for more details
     def initialize(params = {}, mode = :practice)

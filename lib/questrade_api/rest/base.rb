@@ -76,13 +76,14 @@ module QuestradeApi
         def fetch(params = {})
           connection = connection(params)
 
-          connection.get do |req|
+          response = connection.get do |req|
             req.path = params[:endpoint]
 
             params.fetch(:params, []).each do |key, value|
               req.params[key] = value
             end
           end
+          response
         end
 
         def post(params = {})
