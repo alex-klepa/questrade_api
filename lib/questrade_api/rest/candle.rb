@@ -15,7 +15,7 @@ module QuestradeApi
                          params: params)
 
         if response.status == 200
-          result = OpenStruct.new(candles: [])
+          result = OpenStruct.new(candles: [], response: nil)
           result.candles = parse_candles(response.body)
           result.response = response
           response = result
